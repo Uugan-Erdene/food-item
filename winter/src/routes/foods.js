@@ -1,0 +1,12 @@
+import express from "express";
+import { getFood } from "../resolvers/foods/get-food.js";
+import { createFood } from "../resolvers/foods/create-food.js";
+import { changeFood } from "../resolvers/foods/change-food.js";
+import { deleteFood } from "../resolvers/foods/delete-food.js";
+import { getFoodByCategoryId } from "../resolvers/foods/get-food-by-category.js";
+export const foodRouter = express.Router();
+foodRouter.get("/", getFood);
+foodRouter.get("/byCategory/:categoryId", getFoodByCategoryId);
+foodRouter.post("/", createFood);
+foodRouter.put("/", changeFood);
+foodRouter.delete("/", deleteFood);
