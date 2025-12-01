@@ -14,7 +14,7 @@ export const FoodCard = ({ categoryName, categoryId }) => {
   const [foods, setFoods] = useState([]);
   const getfoods = async () => {
     const data = await fetch(
-      `${backend_url}/byCategory/${categoryId}`,
+      `${backend_url}/food/byCategory/${categoryId}`,
       options
     );
     const jsonData = await data.json();
