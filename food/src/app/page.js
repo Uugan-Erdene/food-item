@@ -13,7 +13,6 @@ const options = {
   },
 };
 const backend_url = process.env.PUBLIC_BACKEND_URL;
-console.log(backend_url, "hehe");
 
 export default function Home() {
   const [category, setCategory] = useState([]);
