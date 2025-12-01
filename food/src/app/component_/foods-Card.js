@@ -13,7 +13,10 @@ const backend_url = process.env.PUBLIC_BACKEND_URL;
 export const FoodCard = ({ categoryName, categoryId }) => {
   const [foods, setFoods] = useState([]);
   const getfoods = async () => {
-    const data = await fetch(`${backend_url}/${categoryId}`, options);
+    const data = await fetch(
+      `${backend_url}/byCategory/${categoryId}`,
+      options
+    );
     const jsonData = await data.json();
     setFoods(jsonData);
   };
