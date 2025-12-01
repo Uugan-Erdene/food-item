@@ -20,7 +20,7 @@ export const Card = ({ cart, setCart }) => {
 
       // items[0].quantity * items[0].price
 
-      const res = await fetch("http://localhost:8000/order", {
+      const res = await fetch("https://food-item.onrender.com/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

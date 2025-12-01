@@ -6,7 +6,7 @@ import { Pen } from "../icons/pen";
 import { Bullet } from "../icons/bullet";
 const UPLOAD_PRESET = "photos";
 const CLOUD_NAME = "dpofcy13v";
-
+const backend_url = process.env.PUBLIC_BACKEND_URL;
 export const AppetizersFood = ({
   image,
   getfood,
@@ -28,7 +28,7 @@ export const AppetizersFood = ({
 
   const handleChangeFood = async () => {
     try {
-      const data = await fetch(`http://localhost:8000/food`, {
+      const data = await fetch(`${backend_url}/food`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export const AppetizersFood = ({
   };
   const handleMoveTrash = async () => {
     try {
-      const deleteFood = await fetch(`http://localhost:8000/food`, {
+      const deleteFood = await fetch(`${backend_url}/food`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

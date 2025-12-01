@@ -13,7 +13,7 @@ import { OpenFood } from "../component_/openFood";
 export const Fooding = ({ foodName, price, ingredients, image, foodId }) => {
   // const [food, setFood] = useState([]);
   // const getFood = async () => {
-  //   const data = await fetch(`http://localhost:8000/food`, options);
+  //   const data = await fetch(`https://food-item.onrender.com/food`, options);
   //   const jsonData = await data.json();
   //   setFood(jsonData);
   // };

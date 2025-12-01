@@ -5,6 +5,7 @@ import { Pin } from "../icons/pin";
 import { ProFile } from "../icons/profile";
 import { useState } from "react";
 import { Sheetq } from "./sheet";
+import Link from "next/link";
 
 export const HeroSection = () => {
   const [singIn, setSingIn] = useState();
@@ -46,9 +47,11 @@ export const HeroSection = () => {
           <div className="w-47 h-26 bg-white rounded-3xl fixed mt-40 ml-78">
             <div className="flex flex-col items-center gap-2 mt-3">
               <h1 className="font-medium">Test@gmail.com</h1>
-              <button className="bg-[gray]/20 w-20 h-9 rounded-4xl cursor-pointer">
-                Sign out
-              </button>
+              <Link href={"/login"}>
+                <button className="bg-[gray]/20 w-20 h-9 rounded-4xl cursor-pointer">
+                  Sign out
+                </button>
+              </Link>
             </div>
           </div>
         )}

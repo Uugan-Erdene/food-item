@@ -14,6 +14,7 @@ const options = {
 };
 const UPLOAD_PRESET = "delivery";
 const CLOUD_NAME = "dpofcy13v";
+const backend_url = process.env.PUBLIC_BACKEND_URL;
 export const AddFood = ({ categoryId, getfood }) => {
   const [logoUrl, setLogoUrl] = useState("");
   const [uploading, setUploading] = useState(false);
@@ -77,7 +78,7 @@ export const AddFood = ({ categoryId, getfood }) => {
       alert("nersiig uniin duntei bichne uu!");
     }
     try {
-      const response = await fetch("http://localhost:8000/food", {
+      const response = await fetch(`${backend_url}/food`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

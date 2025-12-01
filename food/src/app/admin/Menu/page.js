@@ -19,11 +19,13 @@ export default function Home() {
   const [category, setCategory] = useState([]);
   const [addDishes, setAddDishes] = useState(false);
   const [addCategory, setAddCategory] = useState("");
+  const backend_url = process.env.PUBLIC_BACKEND_URL;
+
   const handleAddDishes = () => {
     setAddDishes(!addDishes);
   };
   const getData = async () => {
-    const data = await fetch(`http://localhost:8000/category`, options);
+    const data = await fetch(`${backend_url}/category`, options);
     const jsonData = await data.json();
     setCategory(jsonData);
   };
@@ -39,7 +41,7 @@ export default function Home() {
       return;
     }
     try {
-      const res = await fetch("http://localhost:8000/category", {
+      const res = await fetch(`${backend_url}/category`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

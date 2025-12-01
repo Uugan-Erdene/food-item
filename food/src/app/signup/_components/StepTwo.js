@@ -1,30 +1,17 @@
 "use client";
-import { LeftBullet } from "../icons/left-bullet";
-import { useState } from "react";
-export const StepTwo = () => {
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState(false);
-  const handleMailInput = (e) => {
-    const value = e.target.value;
-    setEmail(value);
-
-    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
-    setEmailError(!isValid);
-  };
-
-  const handleClickButton = () => {
-    if (email.length < 3) {
-      setEmailError(true);
-    } else {
-      setEmailError(false);
-    }
+import { LeftBullet } from "../../icons/left-bullet";
+export const StepTwo = ({ nextStep }) => {
+  const handleSubmit = () => {
+    nextStep();
   };
   return (
     <div className="w-full h-full flex items-center justify-center gap-4">
       <div className="w-104 h-72 flex flex-col gap-3">
         <div>
-          <button className="w-9 h-9 border-[gray] border flex items-center justify-center rounded-sm">
+          <button
+            className="w-9 h-9 border-[gray] border flex items-center justify-center rounded-sm"
+            onClick={handleSubmit}
+          >
             <LeftBullet />
           </button>
         </div>
@@ -36,28 +23,24 @@ export const StepTwo = () => {
         </div>
         <div className="flex flex-col gap-3">
           <input
-            className={`w-104 h-9 rounded-sm pl-3 border
-    ${emailError ? "border-red-500" : "border-gray-300"}`}
+            className={`w-104 h-9 rounded-sm pl-3 border`}
             placeholder="Password"
-            onChange={handleMailInput}
           />
 
-          {emailError && (
+          {/* {emailError && (
             <div className="text-[#EF4444] text-sm mt-1">
               Invalid email. Use a format like example@email.com
             </div>
-          )}
+          )} */}
           <input
-            className={`w-104 h-9 rounded-sm pl-3 border
-    ${emailError ? "border-red-500" : "border-gray-300"}`}
+            className={`w-104 h-9 rounded-sm pl-3 border`}
             placeholder="Confirm"
-            onChange={handleMailInput}
           />
-          {emailError && (
+          {/* {emailError && (
             <p className="text-[#EF4444] text-sm mt-1">
               Invalid email. Use a format like example@email.com
             </p>
-          )}
+          )} */}
           <div className="flex gap-2">
             <input type="checkbox" />
             <p className="text-[#71717A] text-xs">Show password</p>
@@ -65,11 +48,7 @@ export const StepTwo = () => {
         </div>
         <div>
           <button
-            className={`w-104 h-9 border rounded-lg cursor-pointer ${
-              emailError || !email ? "bg-[gray]/40" : "bg-black text-white"
-            }`}
-            onClick={handleClickButton}
-            disabled={emailError || !email}
+            className={`w-104 h-9 border rounded-lg cursor-pointer bg-[gray]/40 `}
           >
             Let's Go
           </button>
